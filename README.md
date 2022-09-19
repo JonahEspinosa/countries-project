@@ -21,3 +21,4 @@ document.addEventListener('DOMContentLoaded',function(){**
 
 Those are the 3 addeventListeners I'm using in my app.
 
+![Desktop Screenshot 2022 09 19 - 18 22 09 22 (2)](https://user-images.githubusercontent.com/103456315/191131061-93e96d03-0134-413d-8df4-6ea6e361fa78.png)
