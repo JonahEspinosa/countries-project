@@ -1,11 +1,61 @@
+const countries = [
+    {
+        name:"United States"
+    },
+    {
+        name:"China"
+    },
+    {
+        name:"Italy"
+    },
+    {
+        name:"Turkey"
+    },
+    {
+        name:"Mexico"
+    },
+    {
+        name:"Thailand"
+    },
+    {
+        name:"Germany"
+    },
+    {
+        name:"United Kingdom"
+    },
+   ]
+
+
+
+
+
+
+
+
+
+
+
+
 document.addEventListener('DOMContentLoaded',function(){
     
     let searchBtn = document.getElementById("search-btn");
 
 let countryInp = document.getElementById("country-inp");
+let allbtn = document.getElementById("all-btn")
+let countriesContainer = document.getElementById("countries-container")
 
 
-searchBtn.addEventListener("submit",()=> {
+allbtn.addEventListener("click",()=>{
+    countries.forEach(country => {
+        let p = document.createElement("p")
+    p.innerText = country.name
+    countriesContainer.append(p)
+    })
+    
+    })
+
+searchBtn.addEventListener("submit",async(event)=> {
+    event.preventDefault()
     let countryName = countryInp.value;
     let finalURL = `https://restcountries.com/v3.1/name/${countryName}?fullText=true`;
     console.log(finalURL);
