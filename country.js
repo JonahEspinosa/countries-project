@@ -28,17 +28,16 @@ const countries = [
 
 
 document.addEventListener('DOMContentLoaded',function(){
-    
-    let searchBtn = document.getElementById("search-btn");
-
+     
+let searchBtn = document.getElementById("search-btn");
 let countryInp = document.getElementById("country-inp");
 let allbtn = document.getElementById("all-btn")
 let countriesContainer = document.getElementById("countries-container")
 
 
-allbtn.addEventListener("click",()=>{
-    countries.forEach(country => {
-        let p = document.createElement("p")
+      allbtn.addEventListener("click",()=>{
+     countries.forEach(country => {
+    let p = document.createElement("p")
     p.innerText = country.name
     countriesContainer.append(p)
     })
@@ -46,15 +45,15 @@ allbtn.addEventListener("click",()=>{
     })
 
     searchBtn.addEventListener("submit",async(event)=> {
-        event.preventDefault()
-        let countryName = countryInp.value;
+event.preventDefault()
+let countryName = countryInp.value;
     
     
-        let finalURL = `https://restcountries.com/v3.1/name/${countryName}?fullText=true`;
-    console.log(finalURL);
+ let finalURL = `https://restcountries.com/v3.1/name/${countryName}?fullText=true`;
+ console.log(finalURL);
 
 
-    fetch(finalURL).then((response) => response.json()).then((data) => { 
+      fetch(finalURL).then((response) => response.json()).then((data) => { 
     console.log(data[0]);
 console.log(data[0].capital[0]);
 console.log(data[0].flags.svg);
@@ -67,7 +66,7 @@ console.log(Object.values(data[0].languages).toString().split(",").join(",")
 
 
 
-result.innerHTML = `
+  result.innerHTML = `
 <img src="${data[0].flags.svg}" class="flag-img">
 <h2>${data[0].name.common}</h2>
 <div class="wrapper">
@@ -104,13 +103,13 @@ result.innerHTML = `
 
 })
 
-.catch(()=>{
-    if(countryName.length == 0) {
-        result.innerHTML = `<h3> Whoops need to fill search bar`;
+       .catch(()=>{
+if(countryName.length == 0) {
+     result.innerHTML = `<h3> Whoops need to fill search bar`;
 
     }
-    else{
-        result.innerHTML = `<h3> Enter a valid country name.</h3>`;
+ else{
+   result.innerHTML = `<h3> Enter a valid country name.</h3>`;
     }
  
     
